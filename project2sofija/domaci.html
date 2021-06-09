@@ -1,0 +1,129 @@
+<html>
+<head>
+<title>Draw</title>
+<meta charset="UTF-8">
+<style>
+.slike{
+	position: absolute;
+	right:-800px ;
+	top: -800px;
+}
+#canvas {
+display: inline-block;
+box-sizing: border-box;
+border: 1px solid black;
+}
+#stickers {
+display: inline-block;
+width: 50px;
+height: 50px;
+}
+.sticker, #gumica,#restart,#triangle {
+display: inline-block;
+box-sizing: border-box;
+width: 50px;
+margin: 2px;
+}
+.color {
+display: inline-block;
+box-sizing: border-box;
+width: 48px;
+height: 30px;
+border: 1px solid black;
+margin: 2px 1px 0px 1px;
+
+}
+button{
+border-radius: 50%;
+background-color: black;
+}
+#small{
+height: 5px;
+width: 5px;
+}
+#medium{
+height: 10px;
+width: 10px;
+}
+#large{
+height: 15px;
+width: 15px;
+}
+#added1{
+	position: absolute;
+	right: 20px;
+	bottom: 20px;
+	border: 1px black solid;
+	height: 70px;
+	width: 150px;
+}
+#added2{
+position: absolute;
+	right: 20px;
+	top: 20px;
+}
+.op{
+	background-color: white;
+	color: darkblue;
+}
+</style>
+</head>
+<body>
+<canvas id="canvas" width="800" height="600" 
+onmousedown="BeginDrawing()" 
+onmouseup="EndDrawing()" 
+onmousemove="CurrentlyDrawing(event)"
+ondragover="DragOver(event)"
+ondrop="Drop(event)" 
+>
+</canvas>
+
+<div id="stickers">
+<img class="sticker" src="meme1.jpg" draggable="true" ondragstart="StartDrag(event)" id="sl1">
+<img class="sticker" src="meme2.png" draggable="true" ondragstart="StartDrag(event)" id="sl2">
+<img class="sticker" src="meme3.jpg" draggable="true" ondragstart="StartDrag(event)" id="sl3">
+<img class="sticker" src="meme4.jpg" draggable="true" ondragstart="StartDrag(event)" id="sl4">
+<img class="sticker" src="meme5.jpg" draggable="true" ondragstart="StartDrag(event)" id="sl5">
+<img class="sticker" src="meme6.jpg" draggable="true" ondragstart="StartDrag(event)" id="sl6">
+<img class="sticker" src="meme7.jpg" draggable="true" ondragstart="StartDrag(event)" id="sl7">
+<img class="sticker" src="meme8.jpg" draggable="true" ondragstart="StartDrag(event)" id="sl8">
+<img class="sticker" src="meme9.jpg" draggable="true" ondragstart="StartDrag(event)" id="sl9">
+<img class="sticker" src="meme10.jpg" draggable="true" ondragstart="StartDrag(event)" id="sl10">
+<img class="sticker" src="meme11.jpg" draggable="true" ondragstart="StartDrag(event)" id="sl11">
+</div>
+<img src="gumica.png" onclick="Erase()" id="gumica">
+<img src="restart.png" onclick="Restart()" id="restart">
+<div id="added1"> 
+	<p>select size</p>
+	<button id="small" onclick="ChangeWidth(1)"></button>
+	<button id="medium" onclick="ChangeWidth(5)"></button>
+	<button id="large" onclick="ChangeWidth(10)"></button>
+	</div>
+	<div id="added2"> 
+	<p>You suck at drawing and have a bad sense of humor? Try this!</p>
+	<button id="op1" onclick="Back(1)" class="op">Back. 1</button>
+	<button id="op2" onclick="Back(2)" class="op">Back. 2</button>
+	<button id="op3" onclick="Back(3)" class="op">Back. 3</button>
+	</div>
+
+
+	<img width="800" height="600" src="pic1.jpg" id="slika1" class="slike">
+<img width="800" height="600" src="pic2.jpg" id="slika3" class="slike">
+<img width="800" height="600" src="pic3.jpg" id="slika2" class="slike">
+<img width="800" height="600" src="pic4.jpg" id="slika4" class="slike">
+
+<div>
+<script src="exjs.js "></script>
+<script>
+var colorNames = ["black", "gray", "silver", "white", "maroon", "red", "olive", "yellow", "green",
+"lime", "teal", "aqua", "navy", "blue", "purple", "fuchsia"];
+for (var i = 0; i < 16; i++) {
+document.write(`<div id="color${i}" class="color"
+onclick="ChangeColor('${colorNames[i]}')"
+style="background-color:${colorNames[i]}">
+</div>`);
+}
+</script>
+</div>
+</body>
+</html>
